@@ -269,7 +269,7 @@ El siguiente es un ejemplo de un documento personalizado para un servidor basado
 
 Las mejores prácticas para cada una de las capacidades de Systems Manager aparecen abajo.
 
-[**Automatización**] (http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-automation.html)
+[**Automatización**](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-automation.html)
 
 * Crea libretas de autoservicio para infraestructura como documentos de Automatización.
 
@@ -521,7 +521,7 @@ AWS Config te habilita para contabilizar, auditar, y evaluar las configuraciones
 
 AWS Config también provee una vista clara de la línea de tiempo de cambio en los recursos, incluyendo cambios tanto en las configuraciones de los recursos como en la asociación de esos recursos a otros recursos de AWS. La Figura 8 muestra la información mantenida por AWS Config para un recurso de VPC.
 
-![image alt text](image_5.png)
+![image alt text](media/image_5.png)
 
 Cuando muchos recursos diferentes están cambiando frecuentemente y automáticamente, automatizar la conformidad puede convertirse tan importante como automatizar la tubería de entrega. Para responder a estos cambios en el ambiente, tú puedes usar reglas de AWS Config.
 

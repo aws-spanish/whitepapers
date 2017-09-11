@@ -2,7 +2,7 @@
 
 La administración de la infraestructura es un proceso asociado con la ingeniería del software. Las organizaciones tiene tradicionalmente hardware "montado y apliado", y luego han instalado y configurado sistemas operativos y aplicaciones para soportar sus necesidades tecnológicas. La computación en la nube toma ventaja de la virtualización para habilitar aprovisionar bajo demanda cómputo, red y recursos de almacenamiento que constituyen infraestructuras tecnológicas.
 
-Los gerentes de infraestructura a menudo han tenido que configurar dicho aprovisionamiento manualmente. El procesos manual tiene ciertas desventajas, incluyendo:
+Los gerentes de infraestructura a menudo han tenido que configurar dicho aprovisionamiento manualmente. El proceso manual tiene ciertas desventajas, incluyendo:
 
 * Costos altos ya que necesitan capital humano que puede ir hacia otras necesidades del negocia más importantes.
 
@@ -12,13 +12,13 @@ Los gerentes de infraestructura a menudo han tenido que configurar dicho aprovis
 
 * Dificultad en alcanzar y mantener conformidad a la corporación o estándares de la industria debido a la falta de procesos repetibles.
 
-Infraestructura como Codigo aborda estas deficiencias al traer automatización al proceso de aprovisionamiento. En lugar de confiar en ejecutar pasos manuales, tanto administradores como desarrolladores pueden instanciar infraestructura usando archivos de configuración. Infraestructura como Codigo trata estos archivos de configuracion como codigo tambien. Estos archivos pueden ser usados para producir un conjunto de artefactos, es decir, servicios de cómputo, almacenamiento, red y de aplicación que comprenden un ambiente operando. Infraestructura como Codigo elimina la desviación de la configuracion a traves de automatización, de este modo incrementa la velocidad y agilidad del despliegue de infraestructura.
+Infraestructura como Código aborda estas deficiencias al traer automatización al proceso de aprovisionamiento. En lugar de confiar en ejecutar pasos manuales, tanto administradores como desarrolladores pueden instanciar infraestructura usando archivos de configuración. Infraestructura como Código trata estos archivos de configuración como código también. Estos archivos pueden ser usados para producir un conjunto de artefactos, es decir, servicios de cómputo, almacenamiento, red y de aplicación que comprenden un ambiente operando. Infraestructura como Código elimina la desviación de la configuración a través de automatización, de este modo incrementa la velocidad y agilidad del despliegue de infraestructura.
 
 # El Ciclo de Vida de los Recursos de Infraestructura
 
-En la sección anterior, presentamos Infraestructura como Codigo como una manera de aprovisionar recursos de una manera repetible y consistente. Los conceptos subyacentes son también relevantes para las funciones más altas de la operación de infraestructura tecnológica. Considera el siguiente diagrama.
+En la sección anterior, presentamos Infraestructura como Código como una manera de aprovisionar recursos de una manera repetible y consistente. Los conceptos subyacentes son también relevantes para las funciones más altas de la operación de infraestructura tecnológica. Considera el siguiente diagrama.
 
-![image alt text](image_0.png)
+![image alt text](media/image_0.png)
 
 La Figura 1 ilustra una vista normal del ciclo de vida de los recursos de infraestructura en una organización. Las etapas del ciclo de vida son como sigue:
 
@@ -32,13 +32,13 @@ La Figura 1 ilustra una vista normal del ciclo de vida de los recursos de infrae
 
 5. **Optimización de Recursos.** Los administradores revisan datos de rendimiento e identifican cambios necesarios para optimizar el ambiente alrededor de los criterios tales como rendimiento y manejo de costos.
 
-Cada etapa involucra procedimientos que pueden aprovecharse en código. Esto extiende los beneficios de la Infraestructura como Código de su rol tradicional de aprovisionar al ciclo de vida entero. Cada ciclo de vida entonces se beneficia de la consistencia y repetibilidad que la Infraestructura como Codigo ofrece. Esta vista expandida de la Infraestructura como Codigo resulta en grados mas altos de madurez en la organización de  la Tecnología de Información (TI) como un todo.
+Cada etapa involucra procedimientos que pueden aprovecharse en código. Esto extiende los beneficios de la Infraestructura como Código de su rol tradicional de aprovisionar al ciclo de vida entero. Cada ciclo de vida entonces se beneficia de la consistencia y repetitividad que la Infraestructura como Código ofrece. Esta vista expandida de la Infraestructura como Código resulta en grados más altos de madurez en la organización de  la Tecnología de Información (TI) como un todo.
 
-En la siguiente sección, explicaremos cada etapa del ciclo de vida -- aprovisionamiento, gestión de configuración, supervisión y rendimiento, gobernanza y conformidad, y optimización. Vamos a considerar varias tareas asociadas con cada etapa y discutiremos cómo realizar esas tareas usando las capacidad de Amazon Web Services (AWS).
+En la siguiente sección, explicaremos cada etapa del ciclo de vida -- aprovisionamiento, gestión de configuración, supervisión y rendimiento, gobernanza y conformidad, y optimización. Vamos a considerar varias tareas asociadas con cada etapa y discutiremos cómo realizar esas tareas usando la capacidad de Amazon Web Services (AWS).
 
 # Aprovisionamiento de Recursos
 
-La ciclo de vida de recursos de información comienza con el aprovisionamiento de recursos. Los administradores pueden usar este principio de Infraestructura como Código para coordinar el proceso de aprovisionamiento. Considera las siguientes situaciones:
+El ciclo de vida de recursos de información comienza con el aprovisionamiento de recursos. Los administradores pueden usar este principio de Infraestructura como Código para coordinar el proceso de aprovisionamiento. Considera las siguientes situaciones:
 
 * Un gerente de publicaciones necesita construir una réplica de un ambiente productivo basado en la nube para propósitos de recuperación de desastres. Los administradores diseñan una plantilla que modela el ambiente de producción y aprovisiona infraestructura idéntica en la ubicación de recuperación de desastres.
 
@@ -48,7 +48,7 @@ La ciclo de vida de recursos de información comienza con el aprovisionamiento d
 
 * El gerente de un proyecto de desarrollo necesita proveer ambientes de desarrollo para los programadores que incluyen las herramientas necesarias y con la capacidad de poder interactuar con una plataforma de integración continua. El gerente crea una plantilla de recursos y publica la plantilla en un catálogo de recursos. Esto habilita a los miembros del equipo para aprovisionar sus propios ambientes conforme sea necesario.
 
-Estas situaciones tienen una cosa en común: la necesidad de un proceso repetible para instanciar recursos consistentemente. Infraestructura como Codigo provee un marco de trabajo para dicho proceso. Para atender esta necesidad, AWS ofrece AWS CloudFormation.
+Estas situaciones tienen una cosa en común: la necesidad de un proceso repetible para instanciar recursos consistentemente. Infraestructura como Código provee un marco de trabajo para dicho proceso. Para atender esta necesidad, AWS ofrece AWS CloudFormation.
 
 ## AWS CloudFormation
 
@@ -56,17 +56,17 @@ AWS CloudFormation da a los desarrolladores y administradores de sistemas una ma
 
 ### Anatomía de la Plantilla
 
-La figura 2 muestra un fragmento de una plantilla básica de AWS CloudFormation en formato YAML. Las plantillas contienen parámetros, declaracion de recursos y salidas. Las plantillas pueden referencias las salidas de otras plantillas, lo cual habilita la modularización. 
+La figura 2 muestra un fragmento de una plantilla básica de AWS CloudFormation en formato YAML. Las plantillas contienen parámetros, declaración de recursos y salidas. Las plantillas pueden referencias las salidas de otras plantillas, lo cual habilita la modularización. 
 
-![image alt text](image_1.png)
+![image alt text](media/image_1.png)
 
 La figura 3 es un ejemplo de una plantilla de AWS CloudFormation. La plantilla solicita el nombre del par de llaves de una instancia EC2 del usuario en la sección de parámetros. La sección de recursos de la plantilla luego crea una instancia EC2 usando el par de llaves, con un grupo de seguridad EC2 que habilita acceso HTTP (puerto 80 TCP).
 
-![image alt text](image_2.png)
+![image alt text](media/image_2.png)
 
 ### Conjunto de Cambios
 
-Tu puedes actualizar las plantillas de AWS CloudFormation con código fuente de aplicación para agregar, modificar o borrar pilas de recursos. La característica del conjunto de cambios te habilita para tener una vista anticipada de los cambios propuestos a una pila sin aplicar las actualizaciones asociadas. Tu puedes controlar la habilidad de crear y ver los conjuntos de cambios usando AWS IAM. Puedes permitir a algunos desarrolladores crear y previsualizar los conjuntos de cambios, mientras reservas la habilidad de actualizar las pilas o ejecutar el conjunto de cambios a unos pocos. Pro ejemplo, podrias permitir a un desarrollador ver el impacto de un cambio en una plantilla antes de promover ese cambio a la etapa de pruebas.
+Tú puedes actualizar las plantillas de AWS CloudFormation con código fuente de aplicación para agregar, modificar o borrar pilas de recursos. La característica del conjunto de cambios te habilita para tener una vista anticipada de los cambios propuestos a una pila sin aplicar las actualizaciones asociadas. Tú puedes controlar la habilidad de crear y ver los conjuntos de cambios usando AWS IAM. Puedes permitir a algunos desarrolladores crear y pre visualizar los conjuntos de cambios, mientras reservas la habilidad de actualizar las pilas o ejecutar el conjunto de cambios a unos pocos. Por ejemplo, podrías permitir a un desarrollador ver el impacto de un cambio en una plantilla antes de promover ese cambio a la etapa de pruebas.
 
 Hay tres fases primordiales con el uso del conjunto de cambios.
 
@@ -84,15 +84,15 @@ Muchos lenguajes de programación ofrecen maneras de modularizar código con con
 
 Cuando se diseña la arquitectura de tu pila de AWS CloudFormation, puedes agrupar las pilas lógicamente por función. En lugar de crear una sola plantilla que incluye todos los recursos que necesitas, así como VPCs, subnets y security groups, puedes usar pilas anidadas o referencias cruzadas entre pilas.
 
-La característica de  pilas anidadas te permite crear una nueva pila de recursos de AWS CloudFormation dentro de la plantilla de AWS CloudFormation y establecer una relación padre/hijo entre las dos pilas. Cada vez que creas una pila de AWS CloudFormation desde la plantilla padre, AWS CloudFormation también crea una pila hija. Este enfoque te permite compartir infraestructura como codigo a traves de proyectos mientras se mantienen pilas completamente separadas para cada proyecto.
+La característica de  pilas anidadas te permite crear una nueva pila de recursos de AWS CloudFormation dentro de la plantilla de AWS CloudFormation y establecer una relación padre/hijo entre las dos pilas. Cada vez que creas una pila de AWS CloudFormation desde la plantilla padre, AWS CloudFormation también crea una pila hija. Este enfoque te permite compartir infraestructura como código a través de proyectos mientras se mantienen pilas completamente separadas para cada proyecto.
 
-La referencia cruzada entre pilas habilita la exportación de valores de una pila de AWS CloudFormation para que otra pila de AWS CloudFormation pueda importarla. La referencia cruzada entre pilas promueve un model orientado a servicios con bajo acoplamiento que te permite compartir un solo conjunto de recursos a través de múltiples proyectos.
+La referencia cruzada entre pilas habilita la exportación de valores de una pila de AWS CloudFormation para que otra pila de AWS CloudFormation pueda importarla. La referencia cruzada entre pilas promueve un modelo orientado a servicios con bajo acoplamiento que te permite compartir un solo conjunto de recursos a través de múltiples proyectos.
 
 ### Plantillas Lint
 
 Así como con el código de aplicación, las plantillas de AWS CloudFormation deben pasar por una forma de análisis estático, también conocido como Lint. El objetivo de lint es determinar si el código es sintácticamente correcto, identificar error potenciales, y evaluar la adherencia a guías específicas. En AWS CloudFormation, lint valida que una plantilla está escrita correctamente ya sea en JSON o YAML.
 
-AWS Cloudformation provee la API **_ValidateTemplate_*** *que chequea una sintaxis apropiada para JSON o YAML. Si el chequeo falla, AWS CloudFormation regresa un error de validación de la plantilla. Por ejemplo, tu puedes correr el siguiente comando para validar una plantilla almacenada en Amazon S3:
+AWS Cloudformation provee la API **_ValidateTemplate_*** *que chequea una sintaxis apropiada para JSON o YAML. Si el chequeo falla, AWS CloudFormation regresa un error de validación de la plantilla. Por ejemplo, tú puedes correr el siguiente comando para validar una plantilla almacenada en Amazon S3:
 
 ```
 aws cloudformation validate-template --template-url \ 
@@ -103,7 +103,7 @@ También puedes usar herramientas de validación de terceros. Por ejemplo, cfn-n
 
 ### Mejores Prácticas
 
-La guia de usuario de AWS CloudFormation ofrece una lista de prácticas para diseñar e implementar plantillas de AWS CloudFormation. Nosotros proveemos los vínculos a estas prácticas abajo.
+La guía de usuario de AWS CloudFormation ofrece una lista de prácticas para diseñar e implementar plantillas de AWS CloudFormation. Nosotros proveemos los vínculos a estas prácticas abajo.
 
 **Planeamiento y organización**
 
@@ -117,7 +117,7 @@ La guia de usuario de AWS CloudFormation ofrece una lista de prácticas para dis
 
 * [Utilice referencias de pila cruzadas para exportar recursos compartidos](http://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/UserGuide/best-practices.html#cross-stack)
 
-**Creacion de plantillas**
+**Creación de plantillas**
 
 * [No integre credenciales en sus plantillas](http://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/UserGuide/best-practices.html#creds)
 
@@ -159,13 +159,13 @@ Una vez que la provisión los recursos de infraestructura y la infraestructura e
 
 * Un administrador de aplicaciones necesita periódicamente actualizar un archivo de configuración a través de todos los servidores que están alojando una aplicación.
 
-Una manera de abordar estas situaciones es regresar a la etapa de aprovisionamiento, aprovisionar recursos frescos con los cambios requeridos, y luego disponer de los recursos antiguos. Este enfoque, también conocido como infraestructura inmutable, asegura que los recursos provisionados son construidos de nuevo acorda a la línea base del código cada vez que un cambio es hecho. Esto elimina la desviación de configuración.
+Una manera de abordar estas situaciones es regresar a la etapa de aprovisionamiento, aprovisionar recursos frescos con los cambios requeridos, y luego disponer de los recursos antiguos. Este enfoque, también conocido como infraestructura inmutable, asegura que los recursos provisionados son construidos de nuevo acorde a la línea base del código cada vez que un cambio es hecho. Esto elimina la desviación de configuración.
 
-Hay veces, sin embargo, cuando quisieras tomar un enfoque distinto. En ambientes que tienen altos niveles de durabilidad, puede ser preferible tener maneras de hacer cambios incrementales a los recursos existentes en lugar de reprovisionarlos. Para abordar esta necesidad, AWS ofrece Amazon Systems Manager y AWS OpsWorks para Chef Automate.
+Hay veces, sin embargo, cuando quisieras tomar un enfoque distinto. En ambientes que tienen altos niveles de durabilidad, puede ser preferible tener maneras de hacer cambios incrementales a los recursos existentes en lugar de reaprovisionarlos. Para abordar esta necesidad, AWS ofrece Amazon Systems Manager y AWS OpsWorks para Chef Automate.
 
 ## Amazon EC2 Systems Manager
 
-Amazon EC2 Systems Manager es una colección de capacidades que simplifican mantenimientos comunes, gestión, despliegue, y ejecución de tareas operacionales en instancias EC2 y servers o máquinas virtuales (MV) en las instalaciones físicas. Systems Manager te ayuda a entender y controlar fácilmente el estado actual de tus instancias EC2 y las configuraciones del SO. Puedes llevar registro y administrar remotamente configuraciones del sistema, niveles de parche del SO, configuración de aplicaciones, y otros detalles acerca de los despliegues como vayan ocurriendo en el tiempo. EStas capacidades ayudan con la automatización de tareas complejas y repetitivas, definiendo configuraciones del sistema, previendo desvíos, y manteniendo la conformidad del software tanto para Amazon EC2 como en las configuraciones de las instalaciones.
+Amazon EC2 Systems Manager es una colección de capacidades que simplifican mantenimientos comunes, gestión, despliegue, y ejecución de tareas operacionales en instancias EC2 y servers o máquinas virtuales (MV) en las instalaciones físicas. Systems Manager te ayuda a entender y controlar fácilmente el estado actual de tus instancias EC2 y las configuraciones del SO. Puedes llevar registro y administrar remotamente configuraciones del sistema, niveles de parche del SO, configuración de aplicaciones, y otros detalles acerca de los despliegues como vayan ocurriendo en el tiempo. Estas capacidades ayudan con la automatización de tareas complejas y repetitivas, definiendo configuraciones del sistema, previendo desvíos, y manteniendo la conformidad del software tanto para Amazon EC2 como en las configuraciones de las instalaciones.
 
 La tabla #1 lista las tareas que Systems Manager simplifica.
 
@@ -192,7 +192,7 @@ La tabla #1 lista las tareas que Systems Manager simplifica.
   </tr>
   <tr>
     <td>Patch Manager</td>
-    <td>Despliega parches de software automaticamente a traves de un grupo de instancias</td>
+    <td>Despliega parches de software automáticamente a través de un grupo de instancias</td>
   </tr>
   <tr>
     <td>Automation</td>
@@ -209,9 +209,9 @@ Tabla 1: Tareas de Amazon EC2 Systems Manager
 
 ### Estructura de Documentos
 
-Un documento de Systems Manager define las acciones que System Manager realiza en tus instancias administradas. Systems Manager incluye más de una docena de documentos preconfigurados para soportar las capacidades listadas en la Tabla 1. Tu puedes también crear una versión controlada customizada de documentos para aumentar las capacidades de Systems Manager. Puedes establecer una versión por defecto y actualizar a través de todas las cuentas de AWS. Los pasos en el documento especifican el orden de ejecución. Todos los documentos son escritos en JSON e incluyen tanto los parámetros como las acciones. Así como para AWS OpsWorks para Chef Automate, los documentos para Systems Manager se vuelven parte de la base de infraestructura como codigo, trayendo la Infraestructura como Codigo a la gestion de configuracion. 
+Un documento de Systems Manager define las acciones que System Manager realiza en tus instancias administradas. Systems Manager incluye más de una docena de documentos pre configurado para soportar las capacidades listadas en la Tabla 1. Tú puedes también crear una versión controlada personalizada de documentos para aumentar las capacidades de Systems Manager. Puedes establecer una versión por defecto y actualizar a través de todas las cuentas de AWS. Los pasos en el documento especifican el orden de ejecución. Todos los documentos son escritos en JSON e incluyen tanto los parámetros como las acciones. Así como para AWS OpsWorks para Chef Automate, los documentos para Systems Manager se vuelven parte de la base de infraestructura como código, trayendo la Infraestructura como Código a la gestión de configuración. 
 
-El siguiente es un ejemplo de un documento customizable para un servidor basado en Windows. El documento usa el comando ipconfig para obtener la configuración de red del nodo y luego instala MySQL.
+El siguiente es un ejemplo de un documento personalizado para un servidor basado en Windows. El documento usa el comando ipconfig para obtener la configuración de red del nodo y luego instala MySQL.
 
 ```
 {
@@ -269,7 +269,7 @@ El siguiente es un ejemplo de un documento customizable para un servidor basado 
 
 Las mejores prácticas para cada una de las capacidades de Systems Manager aparecen abajo.
 
-**[Automatizació**n](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-automation.html)
+[**Automatización**] (http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-automation.html)
 
 * Crea libretas de autoservicio para infraestructura como documentos de Automatización.
 
@@ -277,15 +277,15 @@ Las mejores prácticas para cada una de las capacidades de Systems Manager apare
 
 * [Usar los documentos de automatización de AWS-UpdateLinuxAmi y AWS-UpdateWindowsAmi (o crea documentos de automatización personalizados) para construir y mantener AMIs.](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/automation-gs.html)
 
-**[Inventari**o](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-inventory.html)
+[**Inventario**](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-inventory.html)
 
 * Usar Systems Manager Inventory con AWS Config para auditar tus configuraciones de aplicación a través del tiempo.
 
-**[Ventanas de Mantenimient**o](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-maintenance.html)
+[**Ventanas de Mantenimiento**](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-maintenance.html)
 
-* Define un horario para realizar actions potencialmente disruptivas en tus instancias tales como patching del OS, actualizaciones de drivers, o instalaciones de software.
+* Define un horario para realizar acciones potencialmente disruptivas en tus instancias tales como patching del OS, actualizaciones de drivers, o instalaciones de software.
 
-**[Almacenamiento de Parámetro**s](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-paramstore.html)
+[**Almacenamiento de Parámetros**](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-paramstore.html)
 
 * Usa almacenamiento de parámetros para centralizar la gestión global de ajustes de configuración.
 
@@ -293,27 +293,27 @@ Las mejores prácticas para cada una de las capacidades de Systems Manager apare
 
 * [Usa almacenamiento de parámetros con las definiciones de tareas en ECS para almacenar secretos.](https://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 
-**[Gestionador de Patche**s](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-patch.html)
+[**Administrador de Patches**](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-patch.html)
 
 * Usa el gestionar de patches para desplegar patches a escala e incrementar la conformidad de la flotilla a través de tus instancias.
 
-**[Run Comman**d](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/execute-remote-commands.html)
+[**Run Command**](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/execute-remote-commands.html)
 
 * [Gestiona instancias a escala sin acceso SSH usando EC2 Run Command](https://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)
 
 * Audita todas las llamadas al API hechas por o en nombre de Run Command usando AWS CloudTrail
 
-* [Usa la caracteristica de rate control en Run Command para realizar una ejecución de comandos por etapa.](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/send-commands-multiple.html)
+* [Usa la característica de rate control en Run Command para realizar una ejecución de comandos por etapa.](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/send-commands-multiple.html)
 
-* [Usar permisos de accesos detallados para Run Command (y todas capacidades de Systems Manager) usando politicas de AWS IAM.](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/sysman-configuring-access-iam-create.html)
+* [Usar permisos de accesos detallados para Run Command (y todas capacidades de Systems Manager) usando políticas de AWS IAM.](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/sysman-configuring-access-iam-create.html)
 
-**[State Manage**r](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-state.html)
+[**State Manager**](http://docs.aws.amazon.com/es_es/systems-manager/latest/userguide/systems-manager-state.html)
 
 * [Actualizar el agente SSM al menos una vez al mes usando documentos AWS-UpdateSSMAgent pre configurados.](https://aws.amazon.com/blogs/mt/replacing-a-bastion-host-with-amazon-ec2-systems-manager/)
 
 * [Arranque de las instancias EC2 al lanzarlas usando EC2Config para Windows.](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html)
 
-* [(Windows) Sube el modulo de PowerShello DSC a Amazon S3, y usa AWS-InstallPowerShellModule](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html)
+* [(Windows) Sube el módulo de PowerShell o DSC a Amazon S3, y usa AWS-InstallPowerShellModule](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html)
 
 * Usa tags de Amazon EC2 para crear grupos de aplicaciones para tus instancias. Y luego elige instancias usando parámetros Targets en lugar de especificar IDs individuales de las instancias.
 
@@ -323,13 +323,13 @@ Las mejores prácticas para cada una de las capacidades de Systems Manager apare
 
 ## AWS OpsWorks para Chef Automate
 
-AWS OpsWorks para Chef Automate trae las capacidades de Chef, una plataforma de gestión de configuración, a AWS. OpsWorks para Chef Automate se basa aún más en las capacidades de Chef proveyendo caracteristicas adicionales que dan soporte a las capacidades de DevOps a escala. Chef está basado en el concepto de recetas, scripts de configuración escritos en el lenguaje Ruby que realiza las tareas como instalar servicios. Las recetas de Chef, como las plantillas de AWS CloudFormation, son una forma de código fuente que puede ser controlado por versiones, por ende extender el principio de Infraestructura como Codigo a la etapa de gestion de configuracion del ciclo de vida del recurso.
+AWS OpsWorks para Chef Automate trae las capacidades de Chef, una plataforma de gestión de configuración, a AWS. OpsWorks para Chef Automate se basa aún más en las capacidades de Chef proveyendo características adicionales que dan soporte a las capacidades de DevOps a escala. Chef está basado en el concepto de recetas, scripts de configuración escritos en el lenguaje Ruby que realiza las tareas como instalar servicios. Las recetas de Chef, como las plantillas de AWS CloudFormation, son una forma de código fuente que puede ser controlado por versiones, por ende extender el principio de Infraestructura como Código a la etapa de gestión de configuración del ciclo de vida del recurso.
 
 OpsWorks para Chef Automate extiende las capacidades de Chef para habilitar a tu organización a implementar DevOps a escala. OpsWorks para Chef Automate provee tres capacidades clave que puedes configurar para soportar prácticas DevOps: flujo de trabajo, conformidad y visibilidad.
 
 ### Flujo de Trabajo
 
-Puedes usar un flujo de trabajo en OpsWorks para Chef Automate para coordinar el desarrollo, pruebas y despliegue. El flujo de trabajo incluye puertas de calidad que habilitan a los usuarios con los privilegios adecuados a promover codigo entre fases del proceso de la gestión de lanzamiento. Esta capacidad puede ser muy útil en soportar colaboración entre equipos. Cada equipo implementa sus propias puertas para asegurar compatibilidad entre proyectos de cada equipo.
+Puedes usar un flujo de trabajo en OpsWorks para Chef Automate para coordinar el desarrollo, pruebas y despliegue. El flujo de trabajo incluye puertas de calidad que habilitan a los usuarios con los privilegios adecuados a promover código entre fases del proceso de la gestión de lanzamiento. Esta capacidad puede ser muy útil en soportar colaboración entre equipos. Cada equipo implementa sus propias puertas para asegurar compatibilidad entre proyectos de cada equipo.
 
 ### Conformidad
 
@@ -417,7 +417,7 @@ Linting puede alcanzarse en código de infraestructura como recetas de Chef usan
 
 **Pruebas de Unidad con ChefSpec**
 
-ChefSpec puede proveer pruebas de unidad en cookbooks de Chef. Estas pruebas puede determinar si Chef está siendo solicitado para hacer tareas apropiadas para alcanzar los objetivos deseados. ChefSpec requiere una especificación de configuración de la prueba que es entonces evaluada contra una receta.
+ChefSpec puede proveer pruebas de unidad en cookbooks de Chef. Estas pruebas pueden determinar si Chef está siendo solicitado para hacer tareas apropiadas para alcanzar los objetivos deseados. ChefSpec requiere una especificación de configuración de la prueba que es entonces evaluada contra una receta.
 
 Por ejemplo, ChefSpec en realidad no chequea si Chef instalo el paquete de Apache, sino que en lugar de eso chequea si una receta de Chef fue solicitada para instalar Apache. El objetivo de esta prueba es validar si la recepta refleja las intenciones del programador.
 
@@ -431,7 +431,7 @@ Aprovechando las herramientas de pruebas anteriores en conjunto con las capacida
 
 Las estrategias, técnicas y sugerencias aquí presentadas te ayudarán a obtener el máximo beneficio y resultados óptimos de AWS OpsWorks para Chef Automate:
 
-* Considera guardar las recetas de Chef en archivos de Amazon S3. Amazon S3 es altamente confiable y duradero. Explícitamente versionar cada archivo usando una convención de nombre. O usar el versionamiento de Amazon S3, el cual provee una pista de auditoría y una manera fácil de revertir una versión anterior.
+* Considera guardar las recetas de Chef en archivos de Amazon S3. Amazon S3 es altamente confiable y duradero. Explícitamente versionar cada archivo usando una convención de nombre. O usar el versiona miento de Amazon S3, el cual provee una pista de auditoría y una manera fácil de revertir una versión anterior.
 
 * Establecer un backup calendarizado que cumple con los requerimientos de la gobernanza organizacional
 
@@ -439,11 +439,11 @@ Las estrategias, técnicas y sugerencias aquí presentadas te ayudarán a obtene
 
 ## Resumen
 
-Amazon EC3 Systems Manager te permite desplegar, personalizar, enforzar, y auditar un estado de configuración esperado de tus instancias EC2 y servidores o MVs en la infraestructura de tus instalaciones. AWS OpsWorks para Chef Automate the habilita para usar recetas de Chef para soportar la configuración de un ambiente. Puedes usar OpsWorks para Chef Automate independientemente o sobre un ambiente provisionado por AWS CloudFormation. Los documentos y políticas de ejecución asociadas con Systems Manager y las recetas asociadas con OpsWorks para Chef Automate pueden volverse parte de la base de código de infraestructura y ser controlada así como el código fuente de una aplicación.
+Amazon EC3 Systems Manager te permite desplegar, personalizar, reforzar, y auditar un estado de configuración esperado de tus instancias EC2 y servidores o MVs en la infraestructura de tus instalaciones. AWS OpsWorks para Chef Automate te permite usar recetas de Chef para soportar la configuración de un ambiente. Puedes usar OpsWorks para Chef Automate independientemente o sobre un ambiente provisionado por AWS CloudFormation. Los documentos y políticas de ejecución asociadas con Systems Manager y las recetas asociadas con OpsWorks para Chef Automate pueden volverse parte de la base de código de infraestructura y ser controlada así como el código fuente de una aplicación.
 
 # Supervisión y Rendimiento
 
-Habiendo revisado el rol de la Infraestructura como Código en el aprovisionamiento de recursos de infraestructura y la gestion de configuracion, ahora veremos la salud de la infraestructura. Considera como los siguientes eventos podrían afectar la operación de un sitio web durante periodos picos de demanda:
+Habiendo revisado el rol de la Infraestructura como Código en el aprovisionamiento de recursos de infraestructura y la gestión de configuración, ahora veremos la salud de la infraestructura. Considera como los siguientes eventos podrían afectar la operación de un sitio web durante periodos picos de demanda:
 
 * Usuarios de una aplicación web están experimentando tiempos muertos a causa de la latencia del balanceador de carga, haciendo difícil el navegar por el catálogo de productos.
 
@@ -451,41 +451,41 @@ Habiendo revisado el rol de la Infraestructura como Código en el aprovisionamie
 
 * Una base de datos lleva registro del estado de sesiones no tiene el rendimiento suficiente. Esto causa retrasos mientras los usuarios pasan a través de varias etapas de una aplicación.
 
-Estas situaciones describen problemas operacionales que surgen de los recursos de infraestructura que no cumplen las expectativas de su rendimiento. Es importante capturar métricas clave para evaluar la salud del ambiente y comar acciones correctivas cuando el problema surja. Las métricas proveen visibilidad. Con las métricas, tu organización puede responder automáticamente a eventos. Sin metricas, tu organización está ciega a lo que está pasando en su infraestructura, por ende requieren intervención humana para atacar todos los problemas. Con sistemas escalables y desacoplados escritos en múltiples lenguajes y marcos de trabajo, puede ser difícil capturar métricas relevantes y logs y responder adecuadamente. Para atacar esta necesidad, AWS ofrece el servicio de AWS CloudWatch.
+Estas situaciones describen problemas operacionales que surgen de los recursos de infraestructura que no cumplen las expectativas de su rendimiento. Es importante capturar métricas clave para evaluar la salud del ambiente y tomar acciones correctivas cuando el problema surja. Las métricas proveen visibilidad. Con las métricas, tu organización puede responder automáticamente a eventos. Sin métricas, tu organización está ciega a lo que está pasando en su infraestructura, por ende requieren intervención humana para atacar todos los problemas. Con sistemas escalables y desacoplados escritos en múltiples lenguajes y marcos de trabajo, puede ser difícil capturar métricas relevantes y logs y responder adecuadamente. Para atacar esta necesidad, AWS ofrece el servicio de AWS CloudWatch.
 
 ## Amazon CloudWatch
 
-Amazon CloudWatch es un conjunto de servicios que ingesta, interpreta y responde a métricas en tiempo de ejecución, logs, y eventos. CloudWatch automáticamente colecta métricas de muchos servicios de AWS, tales como Amazon EC2, Elastic Load Balancing (ELB), y Amazon DynamoDB. Las respuestas pueden incluir acciones integradas tales como enviar notificaciones o acciones personalizadas manejadas por AWS Lambda, una plataforma serverless orientada a eventos. El código para las funciones Lambda se vuelve parte de la base de infraestructura como código, por ende extendiendo la Infraestructura como Codigo al nivel operacional. CloudWatch consiste en tres servicios: el servicio principal de CloudWatch, Amazon CloudWatch Logs y Amazon CloudWatch Events. Ahora consideramos cada uno de ellos con más detalle.
+Amazon CloudWatch es un conjunto de servicios que ingesta, interpreta y responde a métricas en tiempo de ejecución, logs, y eventos. CloudWatch automáticamente colecta métricas de muchos servicios de AWS, tales como Amazon EC2, Elastic Load Balancing (ELB), y Amazon DynamoDB. Las respuestas pueden incluir acciones integradas tales como enviar notificaciones o acciones personalizadas manejadas por AWS Lambda, una plataforma serverless orientada a eventos. El código para las funciones Lambda se vuelve parte de la base de infraestructura como código, por ende extendiendo la Infraestructura como Código al nivel operacional. CloudWatch consiste en tres servicios: el servicio principal de CloudWatch, Amazon CloudWatch Logs y Amazon CloudWatch Events. Ahora consideramos cada uno de ellos con más detalle.
 
 ### Amazon CloudWatch
 
 El principal servicio Amazon CloudWatch colecta y lleva registro de métricas para muchos servicios de AWS tales como Amazon EC2, ELB, DynamoDB, y Amazon Relational Database Service (RDS), Puedes también crear métricas personalizadas para servicios que desarrollamos, así como aplicaciones. CloudWatch emite alarmas cuando las métricas alcanzan un límite dado durante un periodo de tiempo.
 
-Aquí hay algunos ejemplos de métricas y respuestas potenciales que podran aplicar a las situaciones mencionadas al inicio de esta sección:
+Aquí hay algunos ejemplos de métricas y respuestas potenciales que podrán aplicar a las situaciones mencionadas al inicio de esta sección:
 
-* Si la latencia del ELB excede los cinco segundos por más de dos minutos, enviar un notificación de email al administrador de sistemas.
+* Si la latencia del ELB excede los cinco segundos por más de dos minutos, enviar una notificación de email al administrador de sistemas.
 
-* Cuando el promedio de uso de CPU de la instancia EC2 excede el 60 por ciento por tres minutos, lanze otra instancia EC2
+* Cuando el promedio de uso de CPU de la instancia EC2 excede el 60 por ciento por tres minutos, lance otra instancia EC2
 
 * Incrementar la capacidad de unidades de una tabla de DynamoDB cuando ocurra un exceso en los límites.
 
 Puedes implementar respuestas para alarmas basadas en métricas usando notificaciones pre construidas, o escribiendo funciones Lambda personalizadas en Python, Node.js, Java, o C#. La siguiente figura muestra un ejemplo de cómo una alarma de CloudWatch usa Amazon Simple Notification Service (Amazon SNS) para provocar una actualización de capacidad en DynamoDB.
 
-![image alt text](image_3.png)
+![image alt text](media/image_3.png)
 
 ### Amazon CloudWatch Logs
 
 Amazon CloudWatch Logs supervisar y guarda logs de Amazon EC2, AWS CloudTrail, y otro recursos. Las instancias EC2 pueden enviar registros de información usando el agente de CloudWatch Logs y herramientas de logging como Logstash, Graylog, y Fluentd. Logs almacenados en Amazon S3 puede ser enviados a CloudWatch Logs configurando un evento en Amazon S3 que dispare una función Lambda.
 
-Los datos de log ingestados pueden ser la base de nuevas métricas de CloudWatch que, consecuentemente, pueden disparar alarmas de CloudWatch. Puedes usar esta capacidad para supervisar cualquier recurso que genera logs sin codificar. Si necesitas un procedimiento de respuesta más avanzado, puedes crear una función Lambda para tomar las acciones apropiadas. Por ejemplo, una función Lambda puede usar las APIs de SES, SendEmail o SNS.Publish para publicar información a un canal de Slack cuando un error de NullPointerException aparezca en los logs de producción.
+Los datos de log colectados pueden ser la base de nuevas métricas de CloudWatch que, consecuentemente, pueden disparar alarmas de CloudWatch. Puedes usar esta capacidad para supervisar cualquier recurso que genera logs sin codificar. Si necesitas un procedimiento de respuesta más avanzado, puedes crear una función Lambda para tomar las acciones apropiadas. Por ejemplo, una función Lambda puede usar las APIs de SES, SendEmail o SNS.Publish para publicar información a un canal de Slack cuando un error de NullPointerException aparezca en los logs de producción.
 
-El procesamiento y la correlación de logs permite un análisis más profundo del comportamiento de la aplicación y puede exponer detalles internos que son difíciles de descifrar de las métricas. CloudWatch Logs provee tanto el almacenamiento como el análisis de logs, y procesamiento para habilitar respuestas orientadas a eventos para problemas operacionales.
+El procesamiento y la correlación de logs permiten un análisis más profundo del comportamiento de la aplicación y puede exponer detalles internos que son difíciles de descifrar de las métricas. CloudWatch Logs provee tanto el almacenamiento como el análisis de logs, y procesamiento para habilitar respuestas orientadas a eventos para problemas operacionales.
 
 ### Amazon CloudWatch Events
 
 Amazon CloudWatch Events produce una transmisión de eventos de los cambios en los ambientes de AWS, aplica un motor de reglas, y entrega eventos coincidentes a objetivos específicos. Ejemplos de eventos que pueden ser transmitidos incluyen cambios de estado en instancias EC2, acciones de auto escalamiento, llamadas al API publicadas por CloudTrail, ingresos a la consola de AWS, notificaciones de optimizaciones de AWS Trusted Advisor, eventos personalizados a nivel de aplicación, y acciones calendarizadas. Los objetivos pueden incluir acciones pre construidas tales como notificaciones SNS o respuestas personalizadas usando funciones Lambda.
 
-La habilidad de una infraestructura para responder a los eventos seleccionados ofrece beneficios tanto en seguridad como en operación. Desde la perspectiva de operación, los eventos pueden automatizar actividades de mantenimiento sin tener que gestionar un sistema de calendarización diferente. Con respecto a la seguridad de la información, los eventos pueden proveer notificaciones de inicios de sesión en la consola, fallos de autenticación, y llamadas al API riesgosas registradas por CloudTrail. En ambos campos, incorporar respuestas a eventos dentro de la infraestructura promueve un mejor grado de autocuración y un nivel más alto de madurez en la operación.
+La habilidad de una infraestructura para responder a los eventos seleccionados ofrece beneficios tanto en seguridad como en operación. Desde la perspectiva de operación, los eventos pueden automatizar actividades de mantenimiento sin tener que gestionar un sistema de calendarización diferente. Con respecto a la seguridad de la información, los eventos pueden proveer notificaciones de inicios de sesión en la consola, fallos de autenticación, y llamadas al API riesgosas registradas por CloudTrail. En ambos campos, incorporar respuestas a eventos dentro de la infraestructura promueve un mejor grado de auto curación y un nivel más alto de madurez en la operación.
 
 ### Mejores Prácticas
 
@@ -499,7 +499,7 @@ Aquí hay algunas recomendaciones para las mejores prácticas relacionadas a la 
 
 ## Resumen
 
-La supervisión es esencial para entender el comportamiento de los sistemas y para automatizar reacciones orientadas a datos. CloudWatch colecta observaciones de ambientes en tiempo de ejecución, en la manera de métricas y logs, y hace esos accionables a través de alarmas, flujos y eventos. Las funciones Lambda escritas en Python, Node.js, Java, o C# pueden responder a eventos, de este modo extienden el rol de la Infraestructura como Codigo al campo operacional y mejorar la resistencia de los ambientes en operación.
+La supervisión es esencial para entender el comportamiento de los sistemas y para automatizar reacciones orientadas a datos. CloudWatch colecta observaciones de ambientes en tiempo de ejecución, en la manera de métricas y logs, y hace esos accionables a través de alarmas, flujos y eventos. Las funciones Lambda escritas en Python, Node.js, Java, o C# pueden responder a eventos, de este modo extienden el rol de la Infraestructura como Código al campo operacional y mejorar la resistencia de los ambientes en operación.
 
 # Gobernanza y Conformidad
 
@@ -517,7 +517,7 @@ A pesar de que tengas visibilidad dentro del estado actual de las configuracione
 
 AWS Config te habilita para contabilizar, auditar, y evaluar las configuraciones de tus recursos de AWS. AWS Config automáticamente construye un inventario de tus recursos y lleva registro de los cambios hechos en ellos. La siguiente Figura 7 muestra un ejemplo de un inventario de AWS Config de instancias EC2.
 
-![image alt text](image_4.png)
+![image alt text](media/image_4.png)
 
 AWS Config también provee una vista clara de la línea de tiempo de cambio en los recursos, incluyendo cambios tanto en las configuraciones de los recursos como en la asociación de esos recursos a otros recursos de AWS. La Figura 8 muestra la información mantenida por AWS Config para un recurso de VPC.
 
@@ -527,11 +527,11 @@ Cuando muchos recursos diferentes están cambiando frecuentemente y automáticam
 
 ## AWS Config Rules
 
-Con las reglas de AWS Config, cada cambio dispara una evaluación por las reglas asociadas con esos recursos. AWS provee una colección de reglas gestionadas para requerimientos comunes así como usuarios IAM teniendo buenas contraseñas, grupos y políticas, o para determinar si las instancias EC2 están en la VPC y grupos de seguridad correctos. Las reglas de AWS Config puede rápidamente identificar recursos inconformes y ayuda con el reporte y la remediación. Para las validaciones más allá de las que proveen las reglas gestionadas, las reglas de AWS Config también pueden soportar la creación de reglas personalizadas usando funciones Lambda. Estas reglas pueden convertirse parte de la base de infraestructura como codigo, trayendo así el concepto de Infraestructura como Codigo a las etapas de gobernanza y conformidad del ciclo de vida de la información de los recursos.
+Con las reglas de AWS Config, cada cambio dispara una evaluación por las reglas asociadas con esos recursos. AWS provee una colección de reglas gestionadas para requerimientos comunes así como usuarios IAM teniendo buenas contraseñas, grupos y políticas, o para determinar si las instancias EC2 están en la VPC y grupos de seguridad correctos. Las reglas de AWS Config pueden rápidamente identificar recursos inconformes y ayuda con el reporte y la remediación. Para las validaciones más allá de las que proveen las reglas gestionadas, las reglas de AWS Config también pueden soportar la creación de reglas personalizadas usando funciones Lambda. Estas reglas pueden convertirse parte de la base de infraestructura como código, trayendo así el concepto de Infraestructura como Código a las etapas de gobernanza y conformidad del ciclo de vida de la información de los recursos.
 
 ### Estructura de la Regla
 
-Cuando una regla personalizada es invocada a través de las reglas de AWS Config, las funciones Lambda asociadas reciben los eventos de configuración, los procesa, y luego retorna resultados. La siguiente función determina si el flujo de logs de Amazon VPC están habilitados en una VPC dada.
+Cuando una regla personalizada es invocada a través de las reglas de AWS Config, las funciones Lambda asociadas reciben los eventos de configuración, los procesa, y luego retorna resultados. La siguiente función determina si el flujo de logs de Amazon VPC está habilitados en una VPC dada.
 
 ```
 import boto3
@@ -572,7 +572,7 @@ def lambda_handler(event, context):
   ResultToken=event['resultToken'])
 ```
 
-En este ejemplo, cuando un evento de configuración un una VPC ocurre, el evento se pasa a la función lambda_handler. Este codigo extrae el ID de la VPC y usa llamada describe_flow_logs del API para determinar si el flujo de logs está habilitado. La función Lambda retorna un valor de COMPLIANT si el flujo de logs está habilitado y de otra manera regresa NON_COMPLIANT.
+En este ejemplo, cuando un evento de configuración un una VPC ocurre, el evento se pasa a la función lambda_handler. Este código extrae el ID de la VPC y usa llamada describe_flow_logs del API para determinar si el flujo de logs está habilitado. La función Lambda retorna un valor de COMPLIANT si el flujo de logs está habilitado y de otra manera regresa NON_COMPLIANT.
 
 ### Mejores Prácticas
 
@@ -584,11 +584,11 @@ Aquí hay algunas recomendaciones para implementar AWS Config en tus ambientes:
 
 ## Resumen
 
-AWS Config extiende el concepto de infraestructura como codigo dentro del reino de gobernanza y conformidad. AWS Config puede continuamente grabar la configuración de los recursos mientras que las reglas de AWS Config permiten respuestas dirigidas a eventos para responder a los cambios en la configuración de los recursos rastreados. Tu puedes usar esta capacidad para asistir a tu organización con la supervisión de los controles de conformidad.
+AWS Config extiende el concepto de infraestructura como código dentro del reino de gobernanza y conformidad. AWS Config puede continuamente grabar la configuración de los recursos mientras que las reglas de AWS Config permiten respuestas dirigidas a eventos para responder a los cambios en la configuración de los recursos rastreados. Tú puedes usar esta capacidad para asistir a tu organización con la supervisión de los controles de conformidad.
 
 # Optimización de Recursos
 
-Ahora nos enfocaremos en la etapa final del ciclo de vida de la información del recurso, la optimización de recursos. En esta etapa, los administradores revisan datos de rendimiento y identifican los cambios necesarios para optimizar el ambiente alrededor de criterios tales como la seguridad, rendimiento, y gestión del costo. Es importante para todas las partes interesadas de la aplicación el evaluar regularmente la infraestructura para determinar si está siendo utilizada óptimamente.
+Ahora nos enfocaremos en la etapa final del ciclo de vida de la información del recurso, la optimización de recursos. En esta etapa, los administradores revisan datos de rendimiento e identifican los cambios necesarios para optimizar el ambiente alrededor de criterios tales como la seguridad, rendimiento, y gestión del costo. Es importante para todas las partes interesadas de la aplicación el evaluar regularmente la infraestructura para determinar si está siendo utilizada óptimamente.
 
 Considera las siguientes preguntas:
 
@@ -600,27 +600,27 @@ Considera las siguientes preguntas:
 
 * ¿Existen algunos límites del servicio que apliquen a los recursos usados en el ambiente y, si existen, el uso de los recursos actuales están cerca de exceder esos límites?
 
-Para responder a estas preguntas, necesitamos una manera de interrogar al ambiente en operacion, recuperar datos relacionados con la optimización, y usar esos datos para hacer decisiones significativas. Para abordar esta necesidad, AWS ofrece AWS Trusted Advisor.
+Para responder a estas preguntas, necesitamos una manera de interrogar al ambiente en operación, recuperar datos relacionados con la optimización, y usar esos datos para hacer decisiones significativas. Para abordar esta necesidad, AWS ofrece AWS Trusted Advisor.
 
 ## AWS Trusted Advisor
 
 AWS Trusted Advisor te ayuda a observar las mejores prácticas escaneando tus recursos de AWS y comparando su uso contra las mejores prácticas de AWS en cuatro categorías: optimización de costos, rendimiento, seguridad, y tolerancia a fallos. Como parte de una mejora continua de tu infraestructura y las aplicaciones, tomando ventaja de Trusted Advisor te puede ayudar a mantener tus recursos provisionados óptimamente. La Figura 10 muestra un ejemplo del tablero de Trusted Advisor.
 
-![image alt text](image_6.png)
+![image alt text](media/image_6.png)
 
 ### Verificaciones
 
 Trusted Advisor provee una variedad de verificaciones para determinar si la infraestructura está siguiendo las mejores prácticas. Las revisiones incluyen descripciones detalladas de las mejores prácticas recomendadas, criterios de alerta, directrices para acciones, y una lista de recursos útiles en el tema. Trusted Advisor provee los resultados de las revisiones y puede también proveer continuamente notificaciones semanales para las actualizaciones de estado y el ahorro en costos.
 
-Todos los clientes tienen acceso al conjunto básico de revisiones de Trusted Advisor. Los clientes con un soporte de AWS tipo Business o Enterprise pueden acceder a todas las revisiones de Trusted Advisor y las APIs de Trusted Advisor. Usando las APIs, puedes obtener información de Trusted Advisor y tomar acciones correctivas. Por ejemplo, un programa puede aprovechar Trusted Advisor para examinar los límites de servicio actuales. Si el uso de recursos actual se acerca a lo limites, puedes automáticamente crear casos de soporte para incrementar los límites.
+Todos los clientes tienen acceso al conjunto básico de revisiones de Trusted Advisor. Los clientes con un soporte de AWS tipo Business o Enterprise pueden acceder a todas las revisiones de Trusted Advisor y las APIs de Trusted Advisor. Usando las APIs, puedes obtener información de Trusted Advisor y tomar acciones correctivas. Por ejemplo, un programa puede aprovechar Trusted Advisor para examinar los límites de servicio actuales. Si el uso de recursos actual se acerca a los limites, puedes automáticamente crear casos de soporte para incrementar los límites.
 
-Adicionalmente, Trusted Advisor ahora se integra con Amazon CloudWatch Events. Puedes diseñar una función Lambda para notificar a un canal en Slack cuando el estado de revisión Trusted Advisor cambie. Estos ejemplos ilustran como el concepto de Infraestructura como Codigo puede extenderse al nivel de la optimización de recursos del ciclo de vida de la información del recurso.
+Adicionalmente, Trusted Advisor ahora se integra con Amazon CloudWatch Events. Puedes diseñar una función Lambda para notificar a un canal en Slack cuando el estado de revisión Trusted Advisor cambie. Estos ejemplos ilustran como el concepto de Infraestructura como Código puede extenderse al nivel de la optimización de recursos del ciclo de vida de la información del recurso.
 
 ### Mejores Prácticas
 
 Las mejores prácticas para AWS Trusted Advisor aparecen abajo.
 
-* Suscribirse a las notificaciones de Trusted Advisor a través del correo electrónico o una sistema de entrega alternativa.
+* Suscribirse a las notificaciones de Trusted Advisor a través del correo electrónico o un sistema de entrega alternativa.
 
 * Usar listas de distribución y asegurar que los recipientes apropiados son incluidos en todas esas notificaciones.
 
@@ -630,7 +630,7 @@ Las mejores prácticas para AWS Trusted Advisor aparecen abajo.
 
 Debes supervisar continuamente tu infraestructura para optimizar los recursos de infraestructura con respecto al rendimiento, seguridad, y costo. AWS Trusted Advisor provee la habilidad de usar APIs para interrogar tu infraestructura en AWS para recomendaciones, extendiendo así la Infraestructura como Código para optimizar la fase del ciclo de vida de la información del recurso.
 
-# Proximos Pasos
+# Próximos Pasos
 
 Puedes empezar con la adopción de Infraestructura como Código en tu organización viendo las especificaciones de tu infraestructura de la misma manera en la que ves tu código. AWS ofrece una gran gama de herramientas que te dan más control y flexibilidad sobre cómo provisionas, gestionas, y operas tu infraestructura en la nube.
 
@@ -638,13 +638,13 @@ Aquí hay algunas acciones clave que puedes tomar en la manera como implementes 
 
 * Inicia usando un servicio de control de código administrado, tal como AWS CodeCommit, para tu infraestructura como código.
 
-* Incorpora procesos de control de calidad via pruebas unitarias y análisis estático del código antes de los despliegues.
+* Incorpora procesos de control de calidad vía pruebas unitarias y análisis estático del código antes de los despliegues.
 
 * Quita el elemento humano y automatiza el aprovisionamiento de la infraestructura, incluyendo políticas de permisos de infraestructura.
 
 * Crea código de infraestructura idempotente que puedas fácilmente volver a desplegar.
 
-* Despliega cada nueva actualización de tu infraestructura vía codigo actualizando tus pilas idempotentes. Evita hacer cambios de una sola vez manualmente.
+* Despliega cada nueva actualización de tu infraestructura vía código actualizando tus pilas idempotentes. Evita hacer cambios de una sola vez manualmente.
 
 * Adopta la automatización de extremo a extremo.
 
@@ -656,13 +656,13 @@ Aquí hay algunas acciones clave que puedes tomar en la manera como implementes 
 
 Adoptando estos principios, tu infraestructura puede dinámicamente evolucionar y acelerar con la rapidez que cambian las necesidades del negocio.
 
-# Conclusion
+# Conclusión
 
-La Infraestructura como Codigo te habilita para codificar la definición de los recursos de infraestructura dentro de archivos de configuración y control de versiones, así como el software de aplicación. Ahora podemos actualizar nuestro diagrama del ciclo de vida y mostrar como AWS soporta cada etapa a través del código.
+La Infraestructura como Código te habilita para codificar la definición de los recursos de infraestructura dentro de archivos de configuración y control de versiones, así como el software de aplicación. Ahora podemos actualizar nuestro diagrama del ciclo de vida y mostrar como AWS soporta cada etapa a través del código.
 
-![image alt text](image_7.png)
+![image alt text](media/image_7.png)
 
-AWS CloudFormation, AWS OpsWorks para Chef Automate, Amazon EC2 Systems Manager, Amazon CloudWatch, AWS Config, and AWS Trusted Advisor te permiten integrar el concepto de Infraestructura como Codigo dentro de todas las fases del ciclo de vida del proyecto. Usando Infraestructura como Codigo, tu organización puede automaticamente desplegar consistentemente y construir ambientes que, a su vez, puede ayudar a tu organización a mejorar su madurez en general.
+AWS CloudFormation, AWS OpsWorks para Chef Automate, Amazon EC2 Systems Manager, Amazon CloudWatch, AWS Config, and AWS Trusted Advisor te permiten integrar el concepto de Infraestructura como Código dentro de todas las fases del ciclo de vida del proyecto. Usando Infraestructura como Código, tu organización puede automáticamente desplegar consistentemente y construir ambientes que, a su vez, puede ayudar a tu organización a mejorar su madurez en general.
 
 # Contribuidores
 

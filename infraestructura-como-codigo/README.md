@@ -1,10 +1,10 @@
 # Introducción a la Infraestructura como Código
 
-La administración de la infraestructura es un proceso asociado con la ingeniería del software. Las organizaciones tiene tradicionalmente hardware "montado y apliado", y luego han instalado y configurado sistemas operativos y aplicaciones para soportar sus necesidades tecnológicas. La computación en la nube toma ventaja de la virtualización para habilitar aprovisionar bajo demanda cómputo, red y recursos de almacenamiento que constituyen infraestructuras tecnológicas.
+La administración de la infraestructura es un proceso asociado con la ingeniería del software. Las organizaciones tiene tradicionalmente hardware "montado y apilado", y luego han instalado y configurado sistemas operativos y aplicaciones para soportar sus necesidades tecnológicas. La computación en la nube toma ventaja de la virtualización para habilitar aprovisionar bajo demanda cómputo, red y recursos de almacenamiento que constituyen infraestructuras tecnológicas.
 
 Los gerentes de infraestructura a menudo han tenido que configurar dicho aprovisionamiento manualmente. El proceso manual tiene ciertas desventajas, incluyendo:
 
-* Costos altos ya que necesitan capital humano que puede ir hacia otras necesidades del negocia más importantes.
+* Costos altos ya que necesitan capital humano que puede ir hacia otras necesidades del negocio más importantes.
 
 * Inconsistencia debido al error humano, conduciendo a desviaciones del estándar de configuración.
 
@@ -52,15 +52,15 @@ Estas situaciones tienen una cosa en común: la necesidad de un proceso repetibl
 
 ## AWS CloudFormation
 
-AWS CloudFormation da a los desarrolladores y administradores de sistemas una manera fácil de crear, manejar, aprovisionar y actualizar una colección de recursos relacionados de AWS en una manera ordenada y predecible. AWS CloudFormation usa plantillas escritas en formato JSON o YAML para describir la colección de recursos de AWS (conocido como una pila), sus dependencias asociadas y cualquier parámetro en tiempo de ejecución. Puedes usar una plantilla para repetidamente para crear copias idénticas de la misma pila consistentemente a través de una región de AWS. Luego de lanzar los recursos, puedes modificarlos y actualizarlos de una manera controlada y predecible. En efecto, estas aplicando control de versiones a tu infraestructura de AWS de la misma manera como lo harías con tu código de aplicación. 
+AWS CloudFormation da a los desarrolladores y administradores de sistemas una manera fácil de crear, manejar, aprovisionar y actualizar una colección de recursos relacionados de AWS en una manera ordenada y predecible. AWS CloudFormation usa plantillas escritas en formato JSON o YAML para describir la colección de recursos de AWS (conocido como una pila), sus dependencias asociadas y cualquier parámetro en tiempo de ejecución. Puedes usar una plantilla repetidamente para crear copias idénticas de la misma pila consistentemente a través de una región de AWS. Luego de lanzar los recursos, puedes modificarlos y actualizarlos de una manera controlada y predecible. En efecto, estas aplicando control de versiones a tu infraestructura de AWS de la misma manera como lo harías con tu código de aplicación. 
 
 ### Anatomía de la Plantilla
 
-La figura 2 muestra un fragmento de una plantilla básica de AWS CloudFormation en formato YAML. Las plantillas contienen parámetros, declaración de recursos y salidas. Las plantillas pueden referencias las salidas de otras plantillas, lo cual habilita la modularización. 
+La figura 2 muestra un fragmento de una plantilla básica de AWS CloudFormation en formato YAML. Las plantillas contienen parámetros, declaración de recursos y salidas. Las plantillas pueden referenciar las salidas de otras plantillas, lo cual habilita la modularización. 
 
 ![image alt text](media/image_1.png)
 
-La figura 3 es un ejemplo de una plantilla de AWS CloudFormation. La plantilla solicita el nombre del par de llaves de una instancia EC2 del usuario en la sección de parámetros. La sección de recursos de la plantilla luego crea una instancia EC2 usando el par de llaves, con un grupo de seguridad EC2 que habilita acceso HTTP (puerto 80 TCP).
+La figura 3 es un ejemplo de una plantilla de AWS CloudFormation. La plantilla solicita el nombre del par de claves de una instancia EC2 del usuario en la sección de parámetros. La sección de recursos de la plantilla luego crea una instancia EC2 usando el par de claves, con un grupo de seguridad EC2 que habilita acceso HTTP (puerto 80 TCP).
 
 ![image alt text](media/image_2.png)
 
